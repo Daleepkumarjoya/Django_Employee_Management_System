@@ -1,0 +1,58 @@
+{% extends 'basic.html' %}
+{% block title %} Registration Page {% endblock title %}
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show my-3" role="alert">
+  <strong> Please !</strong> {{message}}.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+<h1 class="text-center my-3"> Registration Page </h1>
+<div class="container">
+   <div class="row">
+       <div class="col-md-8 offset-md-2">
+           <div class="card bg-dark text-white">
+               <div class="card-body">
+                   <form method="post" action="/register/">
+                       {% csrf_token %}
+                       <div class="mb-3">
+                           <label for="UName"><b>User Name</b></label>
+                           <input type="text" name="UName" id="UName" class="form-control" placeholder="Enter Your Name Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="Fname"><b>First Name</b></label>
+                           <input type="text" id="Fname" name="Fname" class="form-control" placeholder="Enter Your Email Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="Lname"><b>Last Name</b></label>
+                           <input type="text" id="Lname" name="Lname" class="form-control" placeholder="Enter Your Email Here Please">
+                       </div>
+                        <div class="mb-3">
+                           <label for="Email"><b>Email</b></label>
+                           <input type="email" id="Email" name="Email" class="form-control" placeholder="Enter Your Email Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="department"><b>Department</b></label>
+                           <input type="text" id="department" name="department" class="form-control" placeholder="Enter Your Email Here Please">
+                       </div>
+                          <div class="mb-3">
+                           <label for="Password"><b>Password</b></label>
+                           <input type="password" id="Password" name="Password" class="form-control" placeholder="Enter Your Email Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="CPassword"><b>Confirm Password</b></label>
+                           <input type="password" id="CPassword" name="CPassword" class="form-control" placeholder="Enter Your Email Here Please">
+                       </div>
+                       <div class="container text-center ">
+                           <button type="submit" class="btn btn-primary">
+                               Register
+                           </button>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,42 @@
+{% extends 'basic.html' %}
+{% block title %} About Page {% endblock title %}
+{% block body %}
+{% for i in AbaboutModel %}
+    <main role="main">
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Employee Management System</h1>
+          <p> {{i.AboutEMS}}</p>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>{{i.SourceName1}}</h2>
+            <p>{{i.SourceAbout1}}</p>
+
+          </div>
+          <div class="col-md-4">
+            <h2>{{i.SourceName1}}</h2>
+            <p>{{i.SourceAbout2}}</p>
+
+          </div>
+          <div class="col-md-4">
+            <h2>{{i.SourceName3}}</h2>
+            <p>{{i.SourceAbout3}}</p>
+
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+{% endfor %}
+{% endblock body %}

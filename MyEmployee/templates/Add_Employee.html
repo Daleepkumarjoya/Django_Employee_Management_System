@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+{% block title %} Add Employee Page {% endblock title %}
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show my-3" role="alert">
+  <strong>Thanks !</strong> {{message}}.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+<h1 class="text-center my-3"> Add New Employee </h1>
+<div class="container">
+   <div class="row">
+       <div class="col-md-8 offset-md-2">
+           <div class="card bg-dark text-white">
+               <div class="card-body">
+                   <form method="post" action="/AddEmp/">
+                       {% csrf_token %}
+                       <div class="mb-3">
+                           <label for="Name"><b>Employee Name</b></label>
+                           <input type="text" name="EmpName" id="Name" class="form-control" placeholder="Enter Your Name Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="EmpEmail"><b>Employee Email</b></label>
+                           <input type="email" id="EmpEmail" name="EmpEmail" class="form-control" placeholder="Enter Your Email Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="Empid"><b>Employee ID</b></label>
+                           <input type="text" id="Empid" name="EmpId" class="form-control" placeholder="Enter Your ID Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="EmpPhone"><b>Employee Mob/Phone Number</b></label>
+                           <input type="number" id="EmpPhone" name="EmpPhone" class="form-control" placeholder="Enter Your Mobile/Phone Number Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="EmpAdd"><b>Employee Address</b></label>
+                           <input type="text" id="EmpAdd" name="EmpAddress" class="form-control" placeholder="Enter Your Address Here Please">
+                       </div>
+                       <div class="mb-3">
+                           <label for="EmpDep"><b>Employee Department</b></label>
+                           <select name="EmpDep" class="from-control" id="EmpDep">
+                               <option value="Computer Science(CS)">Computer Science</option>
+                               <option value="Software Engineering(SE)">Software Engineering</option>
+                               <option value="Electrical Engineering(EE)">Electrical Engineering</option>
+                           </select>
+                       </div>
+                       <div class="form-check mb-3">
+                           <input class="form-check-input" name="EmpWorking" type="checkbox" value="" id="EmpWorking">
+                            <label class="form-check-label" for="EmpWorking">
+                             Employee Working
+                           </label>
+                          </div>
+                       <div class="container text-center ">
+                           <button type="submit" class="btn btn-primary">
+                               Add Employee
+                           </button>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+{% endblock body %}

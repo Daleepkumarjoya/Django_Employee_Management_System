@@ -1,0 +1,57 @@
+{% extends 'basic.html' %}
+{% block title %} Home Page {% endblock title %}
+{% block body %}
+
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show my-3" role="alert">
+  <strong>Thanks !</strong> {{message}}.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+<h1 class="text-center my-3">Employee Management System</h1>
+<h1 class="text-center my-2">List Of Employees</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Emp: SNO</th>
+                            <th>Emp: Name</th>
+                            <th>Emp: Email</th>
+                            <th>Emp: ID</th>
+                            <th>Emp: Phone/Mobile</th>
+                            <th>Emp: Working</th>
+                            <th>Emp: Address</th>
+                            <th>Emp: Department</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in EmpHome %}
+                        <tr>
+                            <td>{{i.id}}</td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.EmployeeId}}</td>
+                            <td>{{i.PhoneNumber}}</td>
+                            <td>{{i.working}}</td>
+                            <td>{{i.address}}</td>
+                            <td>{{i.department}}</td>
+                            <td>
+                                <a href="/Empdelete/{{i.id}}" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="/EmpUpdate/{{i.id}}" class="btn btn-success btn-sm">Update</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
